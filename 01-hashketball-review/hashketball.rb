@@ -1,3 +1,5 @@
+require 'pry'
+
 def game_hash
   {
     home: {
@@ -116,3 +118,57 @@ def game_hash
     }
   }
 end
+
+def array_of_all_players1
+  # Helper Method: Combine all of the players in one array
+  home_array = game_hash[:home][:players]
+  away_array = game_hash[:away][:players]
+  home_array + away_array
+end
+
+def array_of_all_players2
+  # using map
+  all_players = game_hash.map do |team_location, team_information|
+    team_information[:players]
+  end
+  # [[{}, {}], [{}, {}]]
+  all_players.flatten
+end
+# => [{}, {}, {}, {}]
+
+def find_player_by_name(name)
+  array_of_all_players2.find do |player_hash|
+    player_hash[:player_name] == name
+  end
+end
+
+def num_points_scored(name_argument)
+  # 1. Look for a player named "Alan Anderson"
+  find_player_by_name(name_argument)[:points]
+end
+
+def shoe_size(name_argument)
+  find_player_by_name(name_argument)[:shoe]
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
