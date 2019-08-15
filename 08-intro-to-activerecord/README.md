@@ -28,6 +28,16 @@ Allows us to keep our code DRY (as it relates to classes). If we have similar me
 ### Object Relational Mappers
 Converting data from a database file into objects that we can interact with and manipulate in code. Changes made to our object representation of the data should reflect in the database file. For ruby (on rails), we will be using `ActiveRecord` as our ORM.
 
+0) Establish a connection
+1) Create a migration
+  `rake db:create_migration NAME=create_users`
+2) Write in our migration
+  `create_table`
+3) Rinse and repeat step 1 - 2
+
+4) Migrate
+  `rake db:migrate`
+
 
 ### ActiveRecord
 #### Rake - Task Runner:
