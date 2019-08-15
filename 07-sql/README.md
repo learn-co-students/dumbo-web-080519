@@ -4,12 +4,6 @@
   Structured Query Language -> Databases
 
  - What problems does it solve?
- - *Persistance*
-
- Create
- Read
- Update
- Delete
 
 1. Install the SQLite Browser if you haven't already [here](http://sqlitebrowser.org/)
 2. Open the SQLite Browser and click 'File -> Open DataBase'
