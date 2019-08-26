@@ -1,0 +1,8 @@
+<h1> All the Boating School Students </h1>
+
+<h3>  Students </h3>
+
+<% Student.all.each do |student |%>
+  <marquee> <%= student.name_and_age %> </marquee>
+<% end %>
+

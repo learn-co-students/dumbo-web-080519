@@ -2,3 +2,13 @@ ENV["SINATRA_ENV"] ||= "development"
 
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
+
+desc "for fun" 
+task :put do 
+    puts "im ready!!!!"
+end 
+
+desc "Pry Session"
+task :console do 
+    Pry.start
+end 

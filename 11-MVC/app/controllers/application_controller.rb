@@ -8,16 +8,15 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    "<h1>Fruit Snack Devs</h1>" * 5
-    # erb :welcome
+    @fruit = "kiwi"
+    erb :home 
   end
 
-  get "/fruits" do
-    "<h1>Fruit Snack Devs</h1><p>Here are all of our fruits.</p>"
-  end
+  get "/students" do 
+    @students = Student.all
+    erb :students
+  end 
 
-  delete "/fruits" do
-    "<h1>Fruit Snack Devs</h1><p>You can't delete what you can't handle.</p>"
-  end
+
 
 end
