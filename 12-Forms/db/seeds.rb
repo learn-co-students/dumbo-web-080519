@@ -13,7 +13,6 @@ student_names = ["Avijit Lodh",
 "Renée Cruz",
 "Shane Lonergan",
 "Sukrit Walia",
-"Tate Shepard",
 "Zermina Ejaz"
 ]
 
