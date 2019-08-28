@@ -2,7 +2,7 @@
 * Explain RESTful
 
 * Demonstrate how REST is used with CRUD
-  - Create  
+  - Create  ✅
   - Read ✅
   - Update
   - Delete
