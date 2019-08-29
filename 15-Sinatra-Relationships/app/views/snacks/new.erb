@@ -1,0 +1,23 @@
+<h1>Log a New Snack</h1>
+
+<form action="/snacks" method="POST">
+  <label for="snack_name">Name</label>
+  <input type="text" name="snack[name]" id="snack_name">
+
+  <label for="snack_yumminess">Yumminess</label>
+  <input type="number" name="snack[yumminess]" id="snack_yumminess">
+
+  <label for="snack_student_id">Student</label>
+
+  <select name="snack[student_id]">
+
+    <% @students.each do |student| %>
+      <option value="<%= student.id %>">
+        <%= student.name %>
+      </option>
+    <% end %>
+
+  </select>
+
+  <input type="submit" value="Log a new snack">
+</form>

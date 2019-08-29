@@ -10,6 +10,20 @@
   <input type="submit" value="⬆️">
 </form>
 
+<h2>All of the Student's Snacks</h2>
+
+<ul>
+  <% @student.snacks.each do |snack|  %>
+
+    <li>
+      <a href="/snacks/<%= snack.id %>">
+        <%= snack.name %>
+      </a>
+    </li>
+
+  <% end %>
+</ul>
+
 
 <form action="/students/<%= @student.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">

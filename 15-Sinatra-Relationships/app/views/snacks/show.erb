@@ -1,0 +1,16 @@
+<h1>Snack Show Page</h1>
+
+<p>
+  <%= @snack.name %>
+</p>
+
+<p>
+  <%= @snack.yumminess %>
+</p>
+
+<p>
+  Owned By:
+  <a href="/students/<%= @snack.student.id %>">
+    <%= @snack.student.name %>
+  </a>
+</p>

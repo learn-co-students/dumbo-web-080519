@@ -5,4 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 # use Rack::MethodOverride
+use StudentsController
+use SnacksController
+
 run ApplicationController
