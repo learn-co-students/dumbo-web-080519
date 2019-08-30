@@ -1,0 +1,15 @@
+<h1>Hello, grandmas.</h1>
+
+<ul>
+
+  <% @grandmas.each do |granny| %>
+    <li>
+      <%= link_to granny.name, granny %>
+      <%# link_to granny.name, grandma_path(granny) %>
+      <%# link_to granny.name, grandma_path(granny.id) %>
+      <%# link_to granny.name, "/grandmas/#{granny.id}" %>
+
+    </li>
+  <% end %>
+
+</ul>

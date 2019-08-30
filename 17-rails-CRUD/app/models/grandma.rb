@@ -1,0 +1,2 @@
+class Grandma < ApplicationRecord
+end
