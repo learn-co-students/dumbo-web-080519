@@ -4,6 +4,8 @@
   <%= link_to "See All Grandmas", grandmas_path %>
 </h6>
 
+<%= button_to "Take #{@grandma.name} to the retirement home", @grandma, method: :delete %>
+
 <p>
   Name: <%= @grandma.name %>
 </p>

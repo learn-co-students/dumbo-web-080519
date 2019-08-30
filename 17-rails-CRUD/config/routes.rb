@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :grandmas, only: [:index, :show]
+  resources :grandmas
   # get '/grandmas', to: 'grandmas#index', as: 'grandmas'
   # get '/grandmas/:id', to: 'grandmas#show', as: 'grandma'
 
