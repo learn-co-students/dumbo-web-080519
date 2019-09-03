@@ -7,6 +7,8 @@ class GrandmasController < ApplicationController
 
   def show
     @grandma = Grandma.find(params[:id])
+    @sweater = Sweater.new
+    @sheeps = Sheep.all - @grandma.sheep
   end
 
   def new

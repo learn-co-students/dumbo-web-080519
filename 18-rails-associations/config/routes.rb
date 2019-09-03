@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sweaters
   resources :sheep
   resources :grandmas
   # get '/grandmas', to: 'grandmas#index', as: 'grandmas'

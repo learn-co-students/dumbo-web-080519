@@ -17,3 +17,53 @@
 <p>
   Experience: <%= @grandma.experience %>
 </p>
+
+<h2>All Sweaters For this Grandma</h2>
+
+
+<ul>
+
+  <% @grandma.sweaters.each do |sweater| %>
+    <li>
+      <%= sweater.description %> - made by <%= link_to sweater.sheep.name, sheep_path(sweater.sheep) %>
+    </li>
+  <% end %>
+
+</ul>
+
+<h3>Form to Make a new sweater</h3>
+
+<%= form_for(@sweater) do |f| %>
+  <%= f.hidden_field :grandma_id, value: @grandma.id %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+
+
+  <%= f.label :sheep_id %>
+  <%= f.collection_select :sheep_id, @sheeps, :id, :name %>
+
+  <%= f.submit %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->
