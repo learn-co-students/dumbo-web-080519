@@ -1,0 +1,2 @@
+class Sheep < ApplicationRecord
+end

@@ -1,0 +1,13 @@
+<h1>Editing Sheep</h1>
+
+<%= form_for @sheep do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :country %>
+  <%= f.text_field :country %>
+
+  <%= f.submit %>
+
+<% end %>
