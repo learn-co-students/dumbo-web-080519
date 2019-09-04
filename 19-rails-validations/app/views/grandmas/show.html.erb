@@ -1,0 +1,69 @@
+<h1>Show Page for Grandma</h1>
+
+<h6>
+  <%= link_to "See All Grandmas", grandmas_path %>
+</h6>
+
+<%= button_to "Take #{@grandma.name} to the retirement home", @grandma, method: :delete %>
+
+<p>
+  Name: <%= @grandma.name %>
+</p>
+
+<p>
+  Age: <%= @grandma.age %>
+</p>
+
+<p>
+  Experience: <%= @grandma.experience %>
+</p>
+
+<h2>All Sweaters For this Grandma</h2>
+
+
+<ul>
+
+  <% @grandma.sweaters.each do |sweater| %>
+    <li>
+      <%= sweater.description %> - made by <%= link_to sweater.sheep.name, sheep_path(sweater.sheep) %>
+    </li>
+  <% end %>
+
+</ul>
+
+<h3>Form to Make a new sweater</h3>
+
+<%= form_for(@sweater) do |f| %>
+  <%= f.hidden_field :grandma_id, value: @grandma.id %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+
+
+  <%= f.label :sheep_id %>
+  <%= f.collection_select :sheep_id, @sheeps, :id, :name %>
+
+  <%= f.submit %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->

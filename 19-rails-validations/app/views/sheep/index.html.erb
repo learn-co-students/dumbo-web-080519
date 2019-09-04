@@ -1,0 +1,13 @@
+<h1>Hello, little sheepies.</h1>
+
+<%= link_to "Make Sheep", new_sheep_path %>
+
+<ul>
+
+  <% @sheeps.each do |sheep| %>
+    <li>
+      <%= link_to sheep.name, sheep %>
+    </li>
+  <% end %>
+
+</ul>
