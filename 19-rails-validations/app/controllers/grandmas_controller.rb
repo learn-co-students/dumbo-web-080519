@@ -12,14 +12,22 @@ class GrandmasController < ApplicationController
   end
 
   def new
-    @grandma = Grandma.new
+    @grandma = Grandma.new(flash[:attributes])
   end
 
   def create
     @grandma = Grandma.create(grandma_params)
-    redirect_to @grandma
-    # redirect_to grandma_path(@grandma.id)
+    if @grandma.valid?
+      redirect_to @grandma
+    else
+      # render :new
+      flash[:errors] = @grandma.errors.full_messages
+      flash[:attributes] = @grandma.attributes
+      redirect_to new_grandma_path
+    end
+    # redirect_to @grandma
     # redirect_to grandma_path(@grandma)
+    # redirect_to grandma_path(@grandma.id)
     # redirect_to "/grandmas/#{@grandma.id}"
   end
 
@@ -29,8 +37,13 @@ class GrandmasController < ApplicationController
 
   def update
     @grandma = Grandma.find(params[:id])
-    @grandma.update(grandma_params)
-    redirect_to @grandma
+    if @grandma.update(grandma_params)
+      redirect_to @grandma
+    else
+      flash[:errors] = @grandma.errors.full_messages
+      redirect_to edit_grandma_path(@grandma)
+    end
+
   end
 
   def destroy

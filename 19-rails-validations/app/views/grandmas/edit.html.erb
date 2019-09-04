@@ -1,16 +1,3 @@
 <h1>Editing Grandma</h1>
 
-<%= form_for @grandma do |f| %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :age %>
-  <%= f.number_field :age %>
-
-  <%= f.label :experience %>
-  <%= f.number_field :experience %>
-
-  <%= f.submit %>
-
-<% end %>
+<%= render 'form' %>
