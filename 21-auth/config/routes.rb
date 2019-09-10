@@ -4,8 +4,12 @@ Rails.application.routes.draw do
     resources :votes, only: [:create] 
   end
 
-  resources :users, only: [:new, :create]
+  resources :votes, only: [:destroy]
+
+  resources :users, only: [:new, :create, :show]
   resources :login, only: [:new, :create]
+
+  delete "/logout", to: "login#destroy", as: "logout"
 
   root "colors#index"
 end

@@ -7,4 +7,6 @@ class ColorsController < ApplicationController
     @colors = Color.includes(:votes).all
   end
 
+  
+
 end

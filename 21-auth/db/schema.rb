@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_150235) do
+ActiveRecord::Schema.define(version: 2019_09_10_182036) do
 
   create_table "colors", force: :cascade do |t|
     t.string "hex"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_150235) do
     t.integer "color_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["color_id"], name: "index_votes_on_color_id"
   end
 

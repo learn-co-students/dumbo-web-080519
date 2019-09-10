@@ -11,6 +11,15 @@
 
   <body>
     <header>
+      <% if @logged_in_user %>
+      Logged in as <%= @logged_in_user.username %>
+        <%= form_tag logout_path, method: :delete do %>
+          <%= button_tag  "logout" %>
+        <% end %>
+      <% else %>
+        <%= link_to "Log in", new_login_path %>
+        <%= link_to "Sign up", new_user_path %>
+      <% end %>
       <% if @notification %>
         <p class="message">
           <%= @notification %>
