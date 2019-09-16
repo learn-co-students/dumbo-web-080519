@@ -30,7 +30,11 @@
 
 # DOM questions
 * What is the DOM and why do I care about it?
+  - Document Object Model - Displays the elements on the page as objects
+
 * What does it mean that the DOM is a tree?
+  - DOM => Representation of HTML is a tree
+  
 * What are the key parts of an HTML tag?
   * What is an attribute?
   * What is an ID?
@@ -69,4 +73,3 @@ https://p5js.org/
 http://paperjs.org/examples/
 https://threejs.org/examples/
 https://two.js.org/examples/
-
