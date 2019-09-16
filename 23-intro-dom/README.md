@@ -1,5 +1,5 @@
 # The DOM
-✅ What is the DOM and why do I care about it?
+✅ What is the DOM (Document Object Model) and why do I care about it?
 ✅ What does it mean that the DOM is a tree?
 * Why can't I get access to the DOM from a script tag in the <head>?
 * What is debugger and why is it cool?
