@@ -1,5 +1,6 @@
 # Key Questions
 * What is `fetch` and why is it important?
+  - JSON - JavaScript Object Notation
 * What is AJAX? What is it good for?
 * What are we building today?
   * How can we fill in the blanks for our three pillars?
@@ -10,3 +11,22 @@
 * What, at a basic level, is a promise?
 * How can I work with the promise that fetch returns?
 * How can I update the DOM based on the JSON I have fetched?
+
+
+Asynchronous
+JavaScript
+And
+XML HTTP Request
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->

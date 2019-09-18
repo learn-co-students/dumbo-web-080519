@@ -1,34 +1,49 @@
+document.addEventListener("DOMContentLoaded", function(){
+
+  // fetch(url, {})
+  // .then(res => res.json())
+  // .then(obj => {
+  //  do thingy with obj
+  // })
+
+  let dogButton = document.getElementById('hello-button')
+  dogButton.addEventListener("click", function(){
+
+    fetch("https://dog.ceo/api/breeds/image/random")
+      .then(res => res.json()) // I get a promise, which I can .then
+      .then(resObj => {
+
+        let dogLi = document.createElement("li")
+        let dogImage = document.createElement("img")
+
+        dogImage.src = resObj.message
+        dogImage.alt = "cute dog"
+
+        let dogUL = document.querySelector("#dogs")
+        dogLi.append(dogImage)
+        dogUL.append(dogLi)
+      })
 
 
-// debugger
+  })
 
 
 
-// console.log("hello from line 5")
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const button = document.querySelector("#hello-button")
-  button.addEventListener("click", dogeButtonClicked)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
-
-// console.log("hello from line 17")
-
-
-function dogeButtonClicked(event){
-  // console.log("fetch starting")
-  fetch("https://dog.ceo/api/breeds/image/random")
-    .then(response => response.json())
-    .then(slapDogOnDOM)
-  // console.log(data)
-  // console.log(promise)
-}
-
-function slapDogOnDOM(dog){
-  const ul = document.getElementById("dogs")
-  const li = document.createElement("li")
-  li.innerHTML = `
-    <img src="${ dog.message }"/>
-  `
-  ul.append(li)
-}
