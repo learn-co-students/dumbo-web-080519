@@ -29,6 +29,13 @@
 
 ## Delete
 
+1. When CLICK on DELETE event happens
+2. Make Y fetch happenD ELEE TTE E rewquest to /to_do_items/:id
+3. Slap Z on the DOM!
+
+
+
+
 
 
 
