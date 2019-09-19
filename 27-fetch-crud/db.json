@@ -17,13 +17,18 @@
     },
     {
       "title": "Make Fetch Happen",
-      "done": false,
+      "done": true,
       "id": 4
     },
     {
       "title": "Make more fetches happen",
-      "done": false,
+      "done": true,
       "id": 5
+    },
+    {
+      "title": "PATCH with fetch",
+      "done": false,
+      "id": 6
     }
   ],
   "snacks": [

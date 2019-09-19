@@ -23,6 +23,10 @@
 
 ## Update
 
+1. When click event happens to the checkbox
+2. Make PATCH fetch happen /to_do_items/:id
+3. Slap the done class on the LI on the DOM!
+
 ## Delete
 
 
