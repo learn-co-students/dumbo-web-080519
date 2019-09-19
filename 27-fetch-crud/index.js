@@ -1,115 +1,71 @@
+// document.addEventListener("DOMContentLoaded", function(){
+//
+// })
+let jsonifyTheResponse = (res) => { return res.json()}
+// res => res.json()
+let listOL = document.querySelector("#to-do-items")
+let newForm = document.querySelector("#new-to-do")
 
-document.addEventListener("DOMContentLoaded", function(){
+fetch("http://localhost:3000/to_do_items")
+  .then(jsonifyTheResponse)
+  // .then(res => res.json())
+  // .then(function(res){return res.json()})
+  .then(arrOfItems => {
+    arrOfItems.forEach((item) => { makeJSONIntoLI(item) })
+  })
 
-  const ol = document.querySelector("#to-do-items")
+newForm.addEventListener("submit", function(evt){
+  evt.preventDefault()
+  let form = evt.target
+  let input = form.title
+  let whatUserTyped = input.value
 
-  ol.addEventListener("click", function(event){ //ol is stable parent
-    const isCheckbox = event.target.matches(".js-checkbox");//(event.target.dataset.isCheckbox === "true")
-    const isRemoveButton = event.target.classList.contains("js-remove")
+  let dataToSendBack = {
+    title: whatUserTyped,
+    done: false
+  }
 
-    // console.log(event.target)
-    if (isCheckbox) {
-      updateDoneness(event)
-    } else if (isRemoveButton) {
-      deleteIt(event)
+  fetch("http://localhost:3000/to_do_items", {
+    method: 'POST',
+    body: JSON.stringify(dataToSendBack),
+    headers: {
+      'Content-Type': 'application/json'
     }
-    // console.log("update")
+  })
+  .then(jsonifyTheResponse)
+  .then((item) => {
+    makeJSONIntoLI(item)
   })
 
-
-  fetch("http://localhost:3000/to_do_items")
-    .then(response => response.json())
-    .then(data => {
-      data.forEach(slapOneToDoOnTheDom)
-    })
-
-  const form = document.querySelector("#new-to-do")
-  form.addEventListener("submit", function(){
-    event.preventDefault()
-
-    const form = event.target;
-    const input = form.title;
-    const title = input.value;
-
-    form.reset()
-
-    fetch("http://localhost:3000/to_do_items", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json" // mime type of what we're sending to the server
-      },
-      body: JSON.stringify({
-        title: title,
-        done: false
-      })
-    }).then(res => res.json())
-      .then(slapOneToDoOnTheDom)
-
-  })
+  // .then(function(res){
+  //   if (res.ok) {
+  //     return jsonifyTheResponse(res)
+  //   } else {
+  //     console.error("This broke");
+  //   }
+  // })
 
 })
 
-function deleteIt(){
-  const button = event.target
-  const id = button.dataset.id
+function makeJSONIntoLI(item){
 
-  fetch(`http://localhost:3000/to_do_items/${ id }`, {
-    method: "DELETE"
-  }).then(res => {
-
-    // pessimistic rendering
-    const liToDelete = document.querySelector(`#list-item-${ id }`)
-    liToDelete.remove()
-
-  })
-
-  // //optimistic rendering
-  // const liToDelete = document.querySelector(`#list-item-${ id }`)
-  // liToDelete.remove()
-
+  listOL.innerHTML += `<li class="item">
+    <input id="to-do-item-${item.id}" type="checkbox" ${ item.done ? "checked" : "" } />
+    <label for="to-do-item-${item.id}" class="js-title middle aligned content">${item.title}</label>
+    <button>×</button>
+  </li>`
 
 }
 
-function updateDoneness(event){
-  // console.log(event.target)
-  // console.log(event.target.dataset)
-  const checkbox = event.target
-  const id = checkbox.dataset.id
-  const done = checkbox.checked
-  // event.target.id[event.target.id.length - 1]
-  fetch(`http://localhost:3000/to_do_items/${ id }`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      done
-    })
-  }).then(res => res.json())
-  .then(toDo => {
-    const liWeWantToDoneify = document.querySelector(`#list-item-${ toDo.id }`)
-
-    if (toDo.done) 
-      liWeWantToDoneify.classList.add("done")
-    else 
-      liWeWantToDoneify.classList.remove("done")
-
-  })
-}
 
 
 
-const slapOneToDoOnTheDom = (toDoItem) => { 
-  const ol = document.querySelector("#to-do-items")
 
-  // console.log(toDoItem)
 
-  ol.innerHTML += `<li id="list-item-${ toDoItem.id }" class="item ${ toDoItem.done ? "done" : "" }">
-    <input data-id="${ toDoItem.id }" class="js-checkbox" id="to-do-item-${ toDoItem.id }" type="checkbox" ${ toDoItem.done ? "checked" : "" } />
-    <label for="to-do-item-${ toDoItem.id }" class="js-title middle aligned content">${ toDoItem.title }</label>
-    <button data-id="${ toDoItem.id }" class="js-remove">×</button>
-  </li>
-  ` /// this is dangerous; children are being killed
 
-  // console.log(toDoItem) 
-}
+
+
+
+
+
+//

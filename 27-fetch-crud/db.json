@@ -3,12 +3,27 @@
     {
       "id": 1,
       "title": "Walk the cat",
-      "done": false
+      "done": true
     },
     {
-      "title": "Learn how to apply Fetch to front-end problems",
-      "id": 3,
-      "done": false
+      "title": "Bake pizza",
+      "done": false,
+      "id": 2
+    },
+    {
+      "title": "Bake more chicken",
+      "done": false,
+      "id": 3
+    },
+    {
+      "title": "Make Fetch Happen",
+      "done": false,
+      "id": 4
+    },
+    {
+      "title": "Make more fetches happen",
+      "done": false,
+      "id": 5
     }
   ],
   "snacks": [
@@ -18,14 +33,14 @@
       "id": 1
     },
     {
-      "yumminess": -10,
-      "name": "Red Hot Gum",
-      "id": 2
-    },
-    {
       "yumminess": 10,
       "name": "Nutella",
       "id": 3
+    },
+    {
+      "name": "Pizza",
+      "yumminess": 1000000,
+      "id": 4
     }
   ]
 }
