@@ -4,6 +4,11 @@ class FoxesController < ApplicationController
         render json: foxes
     end
 
+    def show
+      fox = Fox.find(params[:id])
+      render json: fox
+    end
+
     def create
         render json: Fox.create(fox_params)
     end
