@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MessageContainer from './MessageContainer'
+import Sidebar from './Sidebar'
 
 function App() {
   return (
