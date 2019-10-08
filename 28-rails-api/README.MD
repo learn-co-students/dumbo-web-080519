@@ -1,10 +1,10 @@
 # Key Questions
 - Why do we care about APIs?
+- Can Rails be an API and a webapp at the same time?
 - Wait, what is Rails again?
   - What is MVC?
   - How does RESTful routing work?
   - What is the request/response cycle?
-- Can Rails be an API and a webapp at the same time?
 - Can Rails be just an API?
   - rails new to-do-api --api --database=postgresql
 - How can I use Insomnia to test my API?
