@@ -8,7 +8,7 @@ class Instructor
   def initialize(name, full_name) 
     @name = name
     @full_name = full_name
-  end
+  end 
 
   def introduce
     "Hello, I'm #{ self.name }!"
