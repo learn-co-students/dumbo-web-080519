@@ -48,6 +48,9 @@ class Message extends React.Component {
     // console.log(this.state.potato)
     return (<li>
       { this.props.message.text }
+      &nbsp;
+      <span>{ this.props.message.coconuts }</span>
+      <br />
       <LikeButton likeButtonCounter={ this.state.cocoCounter } 
                   clickHandler={ this.cocoButtonClicked }
                   emoji={ "🥥" } />

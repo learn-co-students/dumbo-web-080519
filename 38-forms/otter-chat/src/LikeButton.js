@@ -7,7 +7,7 @@ class LikeButton extends Component {
   // }
 
   render(){
-    console.log(this.props)
+    // console.log(this.props)
     return (<button 
         onClick={ this.props.clickHandler }>
           <span role="img" alt="coconut">{ this.props.emoji }</span>
