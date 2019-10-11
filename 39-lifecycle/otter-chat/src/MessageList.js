@@ -29,7 +29,7 @@ class MessageList extends React.Component {
     return <ul className="message-list" ref={ this.listRef }>
      { 
         this.props.messages.map(message => {
-           return <Message key={ message.id } message={ message } />
+           return <Message key={ message.id } message={ message } buttonClicked={ this.props.buttonClicked } />
         }) 
     }
     </ul>
