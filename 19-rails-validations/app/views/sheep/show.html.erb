@@ -1,0 +1,15 @@
+<h1>Show Page for Sheep</h1>
+
+<h6>
+  <%= link_to "See All Sheep", sheep_index_path %>
+</h6>
+
+<%= button_to "Take #{@sheep.name} to the pastures above", @sheep, method: :delete %>
+
+<p>
+  Name: <%= @sheep.name %>
+</p>
+
+<p>
+  Country of Origin: <%= @sheep.country %>
+</p>

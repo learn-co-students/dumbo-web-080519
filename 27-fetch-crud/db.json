@@ -1,0 +1,41 @@
+{
+  "to_do_items": [
+    {
+      "id": 1,
+      "title": "Walk the cat",
+      "done": false
+    },
+    {
+      "title": "Bake pizza",
+      "done": true,
+      "id": 2
+    },
+    {
+      "title": "Bake more chicken",
+      "done": true,
+      "id": 3
+    },
+    {
+      "title": "<marquee>🥔</marquee>",
+      "done": false,
+      "id": 4
+    }
+  ],
+  "snacks": [
+    {
+      "name": "Cinnamon",
+      "yumminess": 5,
+      "id": 1
+    },
+    {
+      "yumminess": 10,
+      "name": "Nutella",
+      "id": 3
+    },
+    {
+      "name": "Pizza",
+      "yumminess": 1000000,
+      "id": 4
+    }
+  ]
+}

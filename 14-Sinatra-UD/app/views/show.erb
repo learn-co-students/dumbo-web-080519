@@ -1,0 +1,17 @@
+<h1>Welcome to the Show page</h1>
+
+<a href="/students/<%= @student.id %>/edit">Edit me</a>
+
+<p>Name: <%= @student.name %> </p>
+<p>Age: <%= @student.age %> </p>
+
+<form action="/students/<%= @student.id %>/increment" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="submit" value="⬆️">
+</form>
+
+
+<form action="/students/<%= @student.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Send to live on farm upstate">
+</form>

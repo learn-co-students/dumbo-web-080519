@@ -1,0 +1,17 @@
+<h1>Knit a new sweater</h1>
+
+<%= form_for(@sweater) do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+
+  <%= f.label :grandma_id %>
+  <%= f.collection_select :grandma_id, @grandmas, :id, :name %>
+
+  <%= f.label :sheep_id %>
+  <%= f.collection_select :sheep_id, @sheeps, :id, :name %>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,16 @@
+<h1> All the Boating School Students </h1>
+
+<h3>Students</h3>
+
+<form action="/students" method="GET">
+  <input type="text" name="search_name" >
+  <input type="submit" value="Search for Student">
+</form>
+
+<% @students.each do |student|%>
+  <p>
+    <a href="/students/<%= student.id %>">
+      <%= student.name %>
+    </a>
+  </p>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Garbage Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Stinkiness</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @garbage_items.each do |garbage_item| %>
+      <tr>
+        <td><%= garbage_item.name %></td>
+        <td><%= garbage_item.stinkiness %></td>
+        <td><%= link_to 'Show', garbage_item %></td>
+        <td><%= link_to 'Edit', edit_garbage_item_path(garbage_item) %></td>
+        <td><%= link_to 'Destroy', garbage_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Garbage Item', new_garbage_item_path %>
