@@ -24,7 +24,7 @@ class App extends Component {
     : alert("no dollarz")
   }
 
-  componentDidMount () {
+  fetchSushi = () => {
     fetch(API)
     .then(res => res.json())
     .then(data => {
@@ -34,28 +34,37 @@ class App extends Component {
     })
   }
 
+  componentDidMount () {
+    this.fetchSushi()
+  }
+
   fourSushi = () => {
     const newNumber = this.state.currentIndex + 4
     return this.state.sushis.slice(this.state.currentIndex, newNumber)
   }
 
+  updateNumber = (newNumber) => {
+    this.setState({
+      currentIndex: newNumber
+    })
+  }
+
   moreSushi = () => {    
     let newNumber;
 
-    if (this.state.currentIndex >= 98) {
+    if (this.state.currentIndex >= 96) {
       newNumber = 0 
-      return this.setState({
-        currentIndex: newNumber
-      })
      } else {
       newNumber = this.state.currentIndex + 4
-      return this.setState({
-        currentIndex: newNumber
-      })
      } 
+
+     return newNumber
   }
 
   render() {
+    // console.log(this.state.sushis)
+    // console.log("I, APP, RENDERED!")
+
     // console.log(this.state.currentIndex)
     // console.log("here are your eaten sush", this.state.eaten)
     // console.log("index", this.state.currentIndex)
@@ -70,7 +79,7 @@ class App extends Component {
           sushis={this.fourSushi()} 
           eaten={this.state.eaten}
           eatSushi={this.eatSushi}
-          moreSushi={this.moreSushi}
+          moreSushi={() => this.updateNumber(this.moreSushi())}
           budget= {this.state.budget}/>
         <Table 
         eaten={this.state.eaten}
