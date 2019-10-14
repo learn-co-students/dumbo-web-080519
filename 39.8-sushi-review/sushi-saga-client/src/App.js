@@ -14,15 +14,28 @@ class App extends Component {
     budget: 100,
   }
 
+  // eatSushi = (sushi) => {
+  //   let currentBudget = this.state.budget - sushi.price
+  //   this.state.budget >= 0 ? 
+  //     this.setState({
+  //       eaten: [...this.state.eaten, sushi], 
+  //       budget: currentBudget
+  //     })
+  //   : alert("no dollarz")
+  // }
+
   eatSushi = (sushi) => {
     let currentBudget = this.state.budget - sushi.price
     this.state.budget >= 0 ? 
-      this.setState({
-        eaten: [...this.state.eaten, sushi], 
-        budget: currentBudget
+      this.setState(prevState => {
+        return {
+          eaten: [...prevState.eaten, sushi], 
+          budget: currentBudget
+        }
       })
     : alert("no dollarz")
   }
+
 
   componentDidMount () {
     fetch(API)
