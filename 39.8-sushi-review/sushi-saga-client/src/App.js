@@ -17,9 +17,11 @@ class App extends Component {
   eatSushi = (sushi) => {
     let currentBudget = this.state.budget - sushi.price
     this.state.budget >= 0 ? 
-      this.setState({
-        eaten: [...this.state.eaten, sushi], 
-        budget: currentBudget
+      this.setState(prevState => {
+        return {
+          eaten: [...prevState.eaten, sushi], 
+          budget: currentBudget
+        }
       })
     : alert("no dollarz")
   }
@@ -51,28 +53,11 @@ class App extends Component {
 
   moreSushi = () => {    
     let newNumber;
-
-    if (this.state.currentIndex >= 96) {
-      newNumber = 0 
-     } else {
-      newNumber = this.state.currentIndex + 4
-     } 
-
-     return newNumber
+    this.state.currentIndex >= 96 ?  newNumber = 0 : newNumber = this.state.currentIndex + 4
+    return newNumber
   }
 
   render() {
-    // console.log(this.state.sushis)
-    // console.log("I, APP, RENDERED!")
-
-    // console.log(this.state.currentIndex)
-    // console.log("here are your eaten sush", this.state.eaten)
-    // console.log("index", this.state.currentIndex)
-    // console.log("fourSushi", this.fourSushi())
-    // console.log("newNumber", this.moreSushi())
-    // console.log("currentIndex", this.state.currentIndex)
-    // console.log("dollarz", this.state.budget)
-
     return (
       <div className="app">
         <SushiContainer 
