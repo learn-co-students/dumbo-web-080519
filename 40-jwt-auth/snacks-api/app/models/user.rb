@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   has_many :users_snacks
-  has_many :snacks, through: :users_snacks
+  has_many :snacks, -> { order(name: :asc) }, through: :users_snacks 
   
   has_secure_password # setter for password= && User#authenticate
 

@@ -11,11 +11,26 @@ class App extends React.Component {
     token: null
   }
 
+  componentDidMount(){
+    this.setState({
+      loggedInUserId: localStorage.loggedInUserId,
+      token: localStorage.token,
+    })
+  }
+
+  setToken = (token, userId) => {
+    localStorage.token = token
+    localStorage.loggedInUserId = userId
+    this.setState({
+      token: token,
+      loggedInUserId: userId
+    })
+  }
 
   render(){
     return (<main>
       {
-        <SnackDashboard />
+        this.state.token ? <SnackDashboard token={ this.state.token } loggedInUserId={ this.state.loggedInUserId } /> : <LogIn setToken={ this.setToken } />
       }
     </main>);
   }

@@ -15,6 +15,29 @@ class LogIn extends React.Component {
     })
   }
 
+  logInSubmitted = (event) => {
+    event.preventDefault()
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password
+      })
+    }).then(res => res.json())
+    .then(data => {
+      if (data.errors) {
+        this.setState({
+          errors: data.errors
+        })
+      } else {
+        this.props.setToken(data.token, data.user_id)
+      }
+    })
+  }
+
   render(){
     return <>
       <ul>
@@ -28,7 +51,7 @@ class LogIn extends React.Component {
         <section>
           <h2>Log In</h2>
           <button onClick={ () => this.setState({ logIn: false }) }>I need to register!!!</button>
-          <form>
+          <form onSubmit={ this.logInSubmitted }>
             <label  htmlFor="log_in_username">Username</label>
             <input  id="log_in_username" 
                     type="text" 
