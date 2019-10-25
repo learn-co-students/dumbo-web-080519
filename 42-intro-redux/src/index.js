@@ -1,17 +1,27 @@
 import { createStore } from 'redux'
-// import reducer from './reducer'
+import reducer from './reducer'
+import actions from './actions'
+import { addFruit } from './actionCreators'
 
 const initialState = {
-
+  quadratini: [],
+  pasta: {
+    lasagne: ["meatball"],
+    fettucini: []
+  },
+  fruit: []
 }
 
-// const reducer = (state, action) => {
+const store = createStore(reducer, initialState)
 
-// }
+store.dispatch(actions.addCheeseToLasagne)
 
-// const store = createStore(reducer, initialState)
+store.dispatch(addFruit("pizza"))
 
-// console.log(store)
-// console.log(store.getState())
+store.dispatch(addFruit("graham"))
+
+store.dispatch(actions.skdjhfsdlkhjfsdkljfhds)
 
 
+console.log(store)
+console.log(store.getState())

@@ -1,3 +1,5 @@
+import uuid from 'uuid'
+
 
 const reducer = (state, action) => {
   // console.log("reducer got called")
@@ -8,7 +10,7 @@ const reducer = (state, action) => {
     case "ADD_FRUIT":
       return {
         ...state,
-        fruit: [ ...state.fruit, action.fruit ]
+        fruit: [ ...state.fruit, { id: uuid(), name: action.fruit } ]
       }
     default:
       return state

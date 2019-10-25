@@ -29,4 +29,3 @@ ReactDOM.render(<Provider store={ store }><App /></Provider>, document.getElemen
 serviceWorker.unregister();
 
 
-// store.dispatch(addFruit("watermelon"))

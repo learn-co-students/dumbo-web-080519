@@ -8,7 +8,7 @@ class FruitList extends React.Component {
     console.log("FruitList")
 
     return <ul>{
-      this.props.fruitList.map(fruit => <li key={ fruit }>{fruit}</li>)
+      this.props.fruitList.map(fruit => <li key={ fruit.id }>{ fruit.name }</li>)
     }</ul>
   }
 }
@@ -20,10 +20,10 @@ const mapStateToProps = (state) => {
     fruitList: state.fruit
   }
 }
-
-
 const wrapWithConnect = connect(mapStateToProps)
 const FruitListConnectedToRedux = wrapWithConnect(FruitList)
-
-
 export default FruitListConnectedToRedux
+
+
+
+
